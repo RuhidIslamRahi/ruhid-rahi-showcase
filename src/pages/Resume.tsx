@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from '@/components/Layout';
 import { Book, Briefcase, Calendar, Download, Mail, MapPin, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Resume = () => {
   const education = [
@@ -62,7 +63,7 @@ const Resume = () => {
 
   return (
     <Layout>
-      <div className="container py-16 md:py-24">
+      <div className="container py-8 md:py-16 min-h-screen">
         <h1 className="text-4xl font-bold mb-6">
           <span className="gradient-text">Resume</span>
         </h1>
@@ -71,7 +72,7 @@ const Resume = () => {
         {/* Personal Info Section */}
         <div className="bg-secondary rounded-xl p-6 mb-8">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-purple-600">
+            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-purple-600 flex-shrink-0">
               {/* Profile image placeholder */}
               <div className="w-full h-full bg-purple-900 flex items-center justify-center">
                 <span className="text-4xl font-bold text-white">{personalInfo.name.charAt(0)}</span>
@@ -103,7 +104,7 @@ const Resume = () => {
             </div>
             
             {/* Download Resume Button */}
-            <div className="self-center md:self-start">
+            <div className="self-center md:self-start flex-shrink-0">
               <Button variant="default" className="gap-2">
                 <Download className="w-4 h-4" />
                 Download Resume
@@ -112,47 +113,51 @@ const Resume = () => {
           </div>
         </div>
         
-        {/* Education Section */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-6">
-            <Book className="text-purple-600 w-6 h-6" />
-            <h2 className="text-2xl font-bold">Education</h2>
-          </div>
-          
-          <div className="space-y-8">
-            {education.map((edu) => (
-              <div key={edu.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
-                <div className="absolute w-3 h-3 bg-purple-600 rounded-full -left-[7px] top-2"></div>
-                <h3 className="text-xl font-semibold">{edu.school}</h3>
-                <p className="text-purple-500 my-1">{edu.period}</p>
-                <p className="text-muted-foreground">{edu.description}</p>
-                {edu.details && (
-                  <p className="text-sm text-muted-foreground mt-2">{edu.details}</p>
-                )}
+        <ScrollArea className="h-full w-full">
+          <div className="space-y-12 pb-8">
+            {/* Education Section */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Book className="text-purple-600 w-6 h-6" />
+                <h2 className="text-2xl font-bold">Education</h2>
               </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Experience Section */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-6">
-            <Briefcase className="text-purple-600 w-6 h-6" />
-            <h2 className="text-2xl font-bold">Experience</h2>
-          </div>
-          
-          <div className="space-y-8">
-            {experience.map((exp) => (
-              <div key={exp.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
-                <div className="absolute w-3 h-3 bg-purple-600 rounded-full -left-[7px] top-2"></div>
-                <h3 className="text-xl font-semibold">{exp.position}</h3>
-                <p className="text-gray-400 my-1">{exp.company}</p>
-                <p className="text-purple-500 my-1">{exp.period}</p>
-                <p className="text-muted-foreground">{exp.description}</p>
+              
+              <div className="space-y-8">
+                {education.map((edu) => (
+                  <div key={edu.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
+                    <div className="absolute w-3 h-3 bg-purple-600 rounded-full -left-[7px] top-2"></div>
+                    <h3 className="text-xl font-semibold">{edu.school}</h3>
+                    <p className="text-purple-500 my-1">{edu.period}</p>
+                    <p className="text-muted-foreground">{edu.description}</p>
+                    {edu.details && (
+                      <p className="text-sm text-muted-foreground mt-2">{edu.details}</p>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            
+            {/* Experience Section */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Briefcase className="text-purple-600 w-6 h-6" />
+                <h2 className="text-2xl font-bold">Experience</h2>
+              </div>
+              
+              <div className="space-y-8">
+                {experience.map((exp) => (
+                  <div key={exp.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
+                    <div className="absolute w-3 h-3 bg-purple-600 rounded-full -left-[7px] top-2"></div>
+                    <h3 className="text-xl font-semibold">{exp.position}</h3>
+                    <p className="text-gray-400 my-1">{exp.company}</p>
+                    <p className="text-purple-500 my-1">{exp.period}</p>
+                    <p className="text-muted-foreground">{exp.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </ScrollArea>
       </div>
     </Layout>
   );
