@@ -63,22 +63,26 @@ const Resume = () => {
   return (
     <Layout>
       <div className="container py-16 md:py-24">
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-          {/* Personal Info Sidebar */}
-          <div className="w-full md:w-1/3 lg:w-1/4 bg-secondary rounded-xl p-6">
-            <div className="flex flex-col items-center mb-8">
-              <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-purple-600">
-                {/* You can replace with an actual image */}
-                <div className="w-full h-full bg-purple-900 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-white">{personalInfo.name.charAt(0)}</span>
-                </div>
+        <h1 className="text-4xl font-bold mb-6">
+          <span className="gradient-text">Resume</span>
+        </h1>
+        <div className="w-16 h-1 bg-purple-600 mb-8"></div>
+        
+        {/* Personal Info Section */}
+        <div className="bg-secondary rounded-xl p-6 mb-8">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-purple-600">
+              {/* Profile image placeholder */}
+              <div className="w-full h-full bg-purple-900 flex items-center justify-center">
+                <span className="text-4xl font-bold text-white">{personalInfo.name.charAt(0)}</span>
               </div>
-              <h2 className="text-2xl font-bold text-center gradient-text mb-1">{personalInfo.name}</h2>
-              <p className="text-muted-foreground text-center">{personalInfo.title}</p>
+            </div>
+            
+            <div className="flex-1">
+              <h2 className="text-2xl font-bold gradient-text mb-2 text-center md:text-left">{personalInfo.name}</h2>
+              <p className="text-muted-foreground mb-4 text-center md:text-left">{personalInfo.title}</p>
               
-              <div className="w-full border-t border-gray-700 my-4"></div>
-              
-              <div className="w-full space-y-4 mt-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-purple-500" />
                   <span className="text-sm">{personalInfo.email}</span>
@@ -97,62 +101,56 @@ const Resume = () => {
                 </div>
               </div>
             </div>
-          </div>
-          
-          {/* Resume Content */}
-          <div className="w-full md:w-2/3 lg:w-3/4">
-            <h1 className="text-4xl font-bold mb-4">
-              <span className="gradient-text">Resume</span>
-            </h1>
-            <div className="w-16 h-1 bg-purple-600 mb-8"></div>
-            
-            {/* Education Section */}
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-6">
-                <Book className="text-purple-600 w-6 h-6" />
-                <h2 className="text-2xl font-bold">Education</h2>
-              </div>
-              
-              <div className="space-y-8">
-                {education.map((edu) => (
-                  <div key={edu.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
-                    <div className="absolute w-3 h-3 bg-purple-600 rounded-full -left-[7px] top-2"></div>
-                    <h3 className="text-xl font-semibold">{edu.school}</h3>
-                    <p className="text-purple-500 my-1">{edu.period}</p>
-                    <p className="text-muted-foreground">{edu.description}</p>
-                    {edu.details && (
-                      <p className="text-sm text-muted-foreground mt-2">{edu.details}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Experience Section */}
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-6">
-                <Briefcase className="text-purple-600 w-6 h-6" />
-                <h2 className="text-2xl font-bold">Experience</h2>
-              </div>
-              
-              <div className="space-y-8">
-                {experience.map((exp) => (
-                  <div key={exp.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
-                    <div className="absolute w-3 h-3 bg-purple-600 rounded-full -left-[7px] top-2"></div>
-                    <h3 className="text-xl font-semibold">{exp.position}</h3>
-                    <p className="text-gray-400 my-1">{exp.company}</p>
-                    <p className="text-purple-500 my-1">{exp.period}</p>
-                    <p className="text-muted-foreground">{exp.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
             
             {/* Download Resume Button */}
-            <Button variant="default" className="gap-2 mt-4">
-              <Download className="w-4 h-4" />
-              Download Resume
-            </Button>
+            <div className="self-center md:self-start">
+              <Button variant="default" className="gap-2">
+                <Download className="w-4 h-4" />
+                Download Resume
+              </Button>
+            </div>
+          </div>
+        </div>
+        
+        {/* Education Section */}
+        <div className="mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <Book className="text-purple-600 w-6 h-6" />
+            <h2 className="text-2xl font-bold">Education</h2>
+          </div>
+          
+          <div className="space-y-8">
+            {education.map((edu) => (
+              <div key={edu.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
+                <div className="absolute w-3 h-3 bg-purple-600 rounded-full -left-[7px] top-2"></div>
+                <h3 className="text-xl font-semibold">{edu.school}</h3>
+                <p className="text-purple-500 my-1">{edu.period}</p>
+                <p className="text-muted-foreground">{edu.description}</p>
+                {edu.details && (
+                  <p className="text-sm text-muted-foreground mt-2">{edu.details}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Experience Section */}
+        <div className="mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <Briefcase className="text-purple-600 w-6 h-6" />
+            <h2 className="text-2xl font-bold">Experience</h2>
+          </div>
+          
+          <div className="space-y-8">
+            {experience.map((exp) => (
+              <div key={exp.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
+                <div className="absolute w-3 h-3 bg-purple-600 rounded-full -left-[7px] top-2"></div>
+                <h3 className="text-xl font-semibold">{exp.position}</h3>
+                <p className="text-gray-400 my-1">{exp.company}</p>
+                <p className="text-purple-500 my-1">{exp.period}</p>
+                <p className="text-muted-foreground">{exp.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
