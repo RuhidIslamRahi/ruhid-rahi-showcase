@@ -4,44 +4,50 @@ import { ChevronDown } from 'lucide-react';
 
 const HeroSection = () => {
   const [text, setText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
   const fullTexts = ["Data Scientist", "Python Enthusiast", "Problem Solver"];
   const [textIndex, setTextIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
   
   useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-    let charIndex = 0;
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const pauseTime = 1500;
     
-    if (isTyping) {
-      // Typing effect
-      if (charIndex < fullTexts[textIndex].length) {
-        timer = setTimeout(() => {
-          setText(fullTexts[textIndex].substring(0, charIndex + 1));
-          charIndex++;
-          
-          if (charIndex === fullTexts[textIndex].length) {
-            setIsTyping(false);
-            charIndex = 0;
-          }
-        }, 100);
+    const handleTypingEffect = () => {
+      const currentText = fullTexts[textIndex];
+      
+      if (isTyping && !isDeleting) {
+        // Typing forward
+        if (text.length < currentText.length) {
+          setText(currentText.substring(0, text.length + 1));
+        } else {
+          // Finished typing the full text
+          setIsTyping(false);
+          setTimeout(() => {
+            setIsDeleting(true);
+          }, pauseTime);
+        }
+      } else if (isDeleting) {
+        // Deleting text
+        if (text.length > 0) {
+          setText(text.substring(0, text.length - 1));
+        } else {
+          // Finished deleting, move to next text
+          setIsDeleting(false);
+          setTextIndex((prev) => (prev + 1) % fullTexts.length);
+          setIsTyping(true);
+        }
       }
-    } else {
-      // Wait before erasing
-      timer = setTimeout(() => {
-        // Erasing effect
-        timer = setTimeout(() => {
-          if (text.length > 0) {
-            setText(text.substring(0, text.length - 1));
-          } else {
-            setTextIndex((prev) => (prev + 1) % fullTexts.length);
-            setIsTyping(true);
-          }
-        }, 50);
-      }, 1500);
-    }
+    };
+    
+    const timer = setTimeout(
+      handleTypingEffect, 
+      isDeleting ? deletingSpeed : typingSpeed
+    );
     
     return () => clearTimeout(timer);
-  }, [text, isTyping, textIndex, fullTexts]);
+  }, [text, isTyping, isDeleting, textIndex, fullTexts]);
 
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
@@ -58,8 +64,9 @@ const HeroSection = () => {
         </h1>
         
         <div className="h-16 flex justify-center items-center">
-          <div className="text-xl md:text-3xl font-medium typing-container">
+          <div className="text-xl md:text-3xl font-medium">
             <span className="typing-text">{text}</span>
+            <span className="cursor-blink">|</span>
           </div>
         </div>
         

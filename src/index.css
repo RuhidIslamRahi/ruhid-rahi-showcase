@@ -88,8 +88,21 @@
 }
 
 .typing-text {
-  @apply whitespace-nowrap overflow-hidden border-r-4 border-purple-500;
-  animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+  @apply whitespace-nowrap overflow-hidden;
+}
+
+.cursor-blink {
+  @apply text-purple-500;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 .project-card {
