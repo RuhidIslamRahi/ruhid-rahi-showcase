@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 const HeroSection = () => {
   const [text, setText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
-  const fullTexts = ["Web Developer", "UI/UX Designer", "Freelancer"];
+  const fullTexts = ["Data Scientist", "Python Enthusiast", "Problem Solver"];
   const [textIndex, setTextIndex] = useState(0);
   
   useEffect(() => {
@@ -54,7 +54,7 @@ const HeroSection = () => {
       
       <div className="container relative z-10 text-center px-4">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
-          <div>Hello, I'm <span className="gradient-text">John Doe</span></div>
+          <div>Hello, I'm <span className="gradient-text">Ruhid Islam Rahi</span></div>
         </h1>
         
         <div className="h-16 flex justify-center items-center">
@@ -64,7 +64,7 @@ const HeroSection = () => {
         </div>
         
         <p className="mt-6 max-w-lg mx-auto text-gray-300 md:text-lg">
-          I create engaging, responsive websites and applications with modern technologies
+          I create data-driven solutions, explore Python and AI tools, and enjoy building projects that solve real-world problems. I'm on a continuous journey of learning and innovation.
         </p>
         
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
