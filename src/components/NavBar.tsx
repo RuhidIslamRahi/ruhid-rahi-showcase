@@ -41,32 +41,31 @@ const NavBar = () => {
   
   const navLinks = [
     { title: 'Home', id: 'home', path: '/' },
-    { title: 'About', id: 'about', path: '/' },
+    { title: 'About', id: 'about', path: '/#about' },
     { title: 'Resume', id: 'resume', path: '/resume' },
-    { title: 'Projects', id: 'projects', path: '/' },
-    { title: 'Skills', id: 'skills', path: '/' },
+    { title: 'Projects', id: 'projects', path: '/#projects' },
+    { title: 'Skills', id: 'skills', path: '/#skills' },
     { title: 'Certifications', id: 'certifications', path: '/certifications' },
-    { title: 'Contact', id: 'contact', path: '/' }
+    { title: 'Contact', id: 'contact', path: '/#contact' }
   ];
   
-  const scrollToSection = (id: string, path: string) => {
-    if (path === '/') {
-      if (location.pathname === '/') {
-        // If we're already on the home page, just scroll
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        // If we're on another page, navigate home first
-        window.location.href = `/#${id}`;
-      }
-    }
+  const handleNavigation = (path: string, id: string) => {
     setIsOpen(false);
+    
+    if (path.startsWith('/#')) {
+      if (location.pathname === '/') {
+        // If already on home page, scroll to section
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }
+      // If on another page, navigation to home with hash will be handled by Link component
+    }
   };
   
   const isActive = (id: string, path: string) => {
-    if (path !== '/') {
-      return location.pathname === path;
+    if (path.startsWith('/#')) {
+      return location.pathname === '/' && activeSection === id;
     }
-    return location.pathname === '/' && activeSection === id;
+    return location.pathname === path;
   };
   
   return (
@@ -80,29 +79,17 @@ const NavBar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-4">
           {navLinks.map((link) => (
-            link.path === '/' ? (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id, link.path)}
-                className={cn(
-                  "nav-link",
-                  isActive(link.id, link.path) && "active"
-                )}
-              >
-                {link.title}
-              </button>
-            ) : (
-              <Link
-                key={link.id}
-                to={link.path}
-                className={cn(
-                  "nav-link",
-                  isActive(link.id, link.path) && "active"
-                )}
-              >
-                {link.title}
-              </Link>
-            )
+            <Link
+              key={link.id}
+              to={link.path}
+              className={cn(
+                "nav-link",
+                isActive(link.id, link.path) && "active"
+              )}
+              onClick={() => handleNavigation(link.path, link.id)}
+            >
+              {link.title}
+            </Link>
           ))}
         </nav>
         
@@ -120,30 +107,17 @@ const NavBar = () => {
         <div className="md:hidden absolute top-16 left-0 w-full bg-dark bg-opacity-95 py-4 shadow-lg animate-fade-in">
           <div className="container flex flex-col space-y-3">
             {navLinks.map((link) => (
-              link.path === '/' ? (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id, link.path)}
-                  className={cn(
-                    "py-2 text-left",
-                    isActive(link.id, link.path) && "text-purple-500"
-                  )}
-                >
-                  {link.title}
-                </button>
-              ) : (
-                <Link
-                  key={link.id}
-                  to={link.path}
-                  className={cn(
-                    "py-2 text-left",
-                    isActive(link.id, link.path) && "text-purple-500"
-                  )}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.title}
-                </Link>
-              )
+              <Link
+                key={link.id}
+                to={link.path}
+                className={cn(
+                  "py-2 text-left",
+                  isActive(link.id, link.path) && "text-purple-500"
+                )}
+                onClick={() => handleNavigation(link.path, link.id)}
+              >
+                {link.title}
+              </Link>
             ))}
           </div>
         </div>

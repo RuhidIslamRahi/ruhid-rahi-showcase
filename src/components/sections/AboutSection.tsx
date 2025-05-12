@@ -3,7 +3,7 @@ import { User, Mail, MapPin, ExternalLink } from 'lucide-react';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-20 min-h-screen flex items-center">
       <div className="container px-4">
         <div className="text-center mb-16">
           <h2 className="section-title">About Me</h2>
