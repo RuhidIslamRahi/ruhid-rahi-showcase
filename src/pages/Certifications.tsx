@@ -44,7 +44,7 @@ const Certifications = () => {
       id: 4,
       title: "Introduction to Python",
       organization: "DataCamp",
-      date: "May 2023",
+      date: "May 2025",
       description: "Comprehensive 4-hour course covering Python fundamentals and programming concepts for data science.",
       icon: <Code className="h-10 w-10 text-purple-600" />,
       credentialId: "6fa70eaf528cad8aeeb026db5524d39d8b335b9d",
