@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -40,8 +40,8 @@ const ContactSection = () => {
           <div>
             <h3 className="text-2xl font-bold mb-6 gradient-text">Contact Information</h3>
             <p className="text-gray-300 mb-8">
-              Have a project in mind? Looking to collaborate? Feel free to reach out to me.
-              I'm always open to discussing new projects and opportunities.
+              Have a project in mind? Looking to collaborate on data science initiatives? Feel free to reach out to me.
+              I'm always open to discussing new projects, learning opportunities and data-driven challenges.
             </p>
             
             <div className="space-y-6">
@@ -51,8 +51,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium">Email</h4>
-                  <a href="mailto:john@example.com" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    john@example.com
+                  <a href="mailto:ruhidislamrahi@gmail.com" className="text-gray-300 hover:text-purple-400 transition-colors">
+                    ruhidislamrahi@gmail.com
                   </a>
                 </div>
               </div>
@@ -63,8 +63,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium">Phone</h4>
-                  <a href="tel:+1234567890" className="text-gray-300 hover:text-purple-400 transition-colors">
-                    +1 (234) 567-890
+                  <a href="tel:+8801779059579" className="text-gray-300 hover:text-purple-400 transition-colors">
+                    +880 1779059579
                   </a>
                 </div>
               </div>
@@ -75,7 +75,37 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium">Location</h4>
-                  <p className="text-gray-300">New York, NY, United States</p>
+                  <p className="text-gray-300">Dhaka, Bangladesh</p>
+                </div>
+              </div>
+              
+              <div className="pt-6 border-t border-gray-800">
+                <h4 className="text-lg font-medium mb-4">Connect With Me</h4>
+                <div className="flex gap-4">
+                  <a 
+                    href="https://www.linkedin.com/in/ruhidislam-rahi/"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-900/50 transition-colors"
+                  >
+                    <Linkedin className="text-purple-500" size={24} />
+                  </a>
+                  <a 
+                    href="https://github.com/RuhidIslamRahi"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-900/50 transition-colors"
+                  >
+                    <Github className="text-purple-500" size={24} />
+                  </a>
+                  <a 
+                    href="https://x.com/RuhidIslamRahi"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-900/50 transition-colors"
+                  >
+                    <Twitter className="text-purple-500" size={24} />
+                  </a>
                 </div>
               </div>
             </div>
