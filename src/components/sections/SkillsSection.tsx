@@ -1,8 +1,7 @@
-
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Brain, Robot, Globe, Code, Database, ChartBar } from 'lucide-react';
+import { Brain, Bot, Globe, Code, Database, ChartBar } from 'lucide-react';
 
 interface Skill {
   name: string;
@@ -150,7 +149,7 @@ const SkillsSection = () => {
             <CardContent className="pt-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-purple-900/50 p-3 rounded-lg">
-                  <Robot className="text-purple-400" size={24} />
+                  <Bot className="text-purple-400" size={24} />
                 </div>
                 <h3 className="text-xl font-semibold">Advanced ML & Analytics</h3>
               </div>
