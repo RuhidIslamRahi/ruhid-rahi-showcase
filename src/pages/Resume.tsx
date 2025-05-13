@@ -9,55 +9,43 @@ const Resume = () => {
   const education = [
     {
       id: 1,
-      school: "BSC In CSE United International University",
-      period: "2022 — Present",
-      description: "Studying at UIU has helped me grow as a CSE student, team player, and problem-solver, sharpening my technical skills and passion for innovation.",
-      details: "Relevant Coursework: OOP (Java), Data Structures & Algorithms (C++), Artificial Intelligence, Database Management Systems, Computer Networks, Digital Logic Design & Microprocessors"
+      school: "United International University",
+      degree: "Bachelor's Degree, Data Science",
+      period: "February 2025 — February 2029",
+      description: "Currently pursuing a Bachelor's degree in Data Science, focusing on building strong foundations in data analysis, machine learning, and AI technologies."
     },
     {
       id: 2,
-      school: "Higher Secondary At Police Lines School And College, Rangpur",
-      period: "2018 — 2020",
-      description: "Completed my HSC exam with a Golden A+ (GPA 5.00) and also gaining strong analytical, problem-solving, and lab skills, while maintaining high academic standards and participating in extracurricular activities."
+      school: "Govt. Shah Sultan College, Bogura",
+      degree: "Higher Secondary Certificate (HSC), Science",
+      period: "2021 — 2023",
+      description: "Completed Higher Secondary education with a focus on Science subjects, establishing a strong foundation for further studies in Data Science."
     },
     {
       id: 3,
-      school: "Secondary At Kaliganj H.A High School",
-      period: "2018",
-      description: "Completed Secondary Education with a Golden A+(GPA 5.00) and also laying a strong academic foundation with a focus on Science. Actively participated in school activities and consistently maintained a high level of academic achievement."
+      school: "Bogra Zilla School, Bogra",
+      degree: "Science",
+      period: "2013 — 2021",
+      description: "Completed Secondary education with a strong academic foundation in Science."
     }
   ];
 
   const experience = [
     {
       id: 1,
-      position: "Organizer, Robotics Segment",
-      company: "UIU CSE FEST 2025",
-      period: "2025",
-      description: "Led the organization of the robotics segment, coordinating activities, managing logistics, and ensuring smooth execution of the robotics-related events."
-    },
-    {
-      id: 2,
-      position: "Senior Executive Of Event",
-      company: "UIU Robotics Club",
-      period: "2024 — Present",
-      description: "Assisted in organizing and executing robotics events and competitions, collaborating with team members to ensure smooth operations, and contributing to the growth and success of the club."
-    },
-    {
-      id: 3,
-      position: "Junior Executive Of Event And Logistics",
-      company: "UIU Robotics Club",
-      period: "2023 — 2024",
-      description: "Supported the planning and execution of robotics events, handling logistics and coordination to ensure smooth operations and participant engagement."
+      position: "General Member",
+      company: "UIU Data Science Club",
+      period: "March 2025 — Present",
+      description: "Actively participating in UIU Data Science Club activities, collaborating with peers on data science projects and initiatives to enhance practical skills and knowledge in the field."
     }
   ];
 
   const personalInfo = {
-    name: "Khaled Hasan Milu",
-    title: "BscCSE | I T E",
-    email: "khmilu339@gmail.com",
-    phone: "+880 1784-000-533",
-    birthday: "August 3",
+    name: "Ruhid Islam Rahi",
+    title: "Python || Data Science @UIU || Learning AI & ML",
+    email: "ruhidislamrahi@gmail.com",
+    phone: "+880 1779059579",
+    birthday: "10 November",
     location: "Dhaka, Bangladesh"
   };
 
@@ -73,10 +61,12 @@ const Resume = () => {
         <div className="bg-secondary rounded-xl p-6 mb-8">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
             <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-purple-600 flex-shrink-0">
-              {/* Profile image placeholder */}
-              <div className="w-full h-full bg-purple-900 flex items-center justify-center">
-                <span className="text-4xl font-bold text-white">{personalInfo.name.charAt(0)}</span>
-              </div>
+              {/* Profile image */}
+              <img 
+                src="/lovable-uploads/eb347c00-c06d-4953-a4ed-17e725cacabc.png" 
+                alt="Ruhid Islam Rahi" 
+                className="w-full h-full object-cover"
+              />
             </div>
             
             <div className="flex-1">
@@ -127,11 +117,9 @@ const Resume = () => {
                   <div key={edu.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
                     <div className="absolute w-3 h-3 bg-purple-600 rounded-full -left-[7px] top-2"></div>
                     <h3 className="text-xl font-semibold">{edu.school}</h3>
+                    <p className="text-gray-400 my-1">{edu.degree}</p>
                     <p className="text-purple-500 my-1">{edu.period}</p>
                     <p className="text-muted-foreground">{edu.description}</p>
-                    {edu.details && (
-                      <p className="text-sm text-muted-foreground mt-2">{edu.details}</p>
-                    )}
                   </div>
                 ))}
               </div>

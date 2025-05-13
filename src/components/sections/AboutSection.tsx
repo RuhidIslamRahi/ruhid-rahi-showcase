@@ -15,8 +15,8 @@ const AboutSection = () => {
             <h3 className="text-2xl font-bold mb-4 gradient-text">Who am I?</h3>
             <h4 className="text-xl mb-4">I'm Ruhid Islam Rahi, a <span className="text-purple-500">Data Science Student</span></h4>
             <p className="text-gray-300 mb-6">
-              I am a passionate and driven student pursuing a Bachelor's in Data Science. With a strong interest in AI, 
-              machine learning, and data analytics, I am eager to build a career as a Data Scientist.
+              I am a passionate and driven student pursuing a Bachelor's in Data Science at United International University. 
+              With a strong interest in AI, machine learning, and data analytics, I am eager to build a career as a Data Scientist.
             </p>
             <p className="text-gray-300 mb-6">
               I am actively learning Python, SQL, and data visualization tools to develop the technical skills required 
@@ -58,7 +58,7 @@ const AboutSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-purple-700/20 via-transparent to-purple-700/20"></div>
               {/* Using the uploaded image */}
               <img 
-                src="/lovable-uploads/8d783da8-8cb9-4b6b-95df-281c0f2a2f36.png" 
+                src="/lovable-uploads/eb347c00-c06d-4953-a4ed-17e725cacabc.png" 
                 alt="Ruhid Islam Rahi" 
                 className="w-full h-[400px] object-cover"
               />
