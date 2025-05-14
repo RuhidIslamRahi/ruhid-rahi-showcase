@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Brain, Bot, Globe, Code, Database, ChartBar, PythonIcon, PandasIcon, Box, BarChart3 } from 'lucide-react';
+import { Brain, Bot, Globe, Code, Database, ChartBar, Box, BarChart3 } from 'lucide-react';
 
 interface Skill {
   name: string;
