@@ -1,102 +1,147 @@
+
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Brain, Bot, Globe, Code, Database, ChartBar } from 'lucide-react';
+import { Brain, Bot, Globe, Code, Database, ChartBar, PythonIcon, PandasIcon, Box, BarChart3 } from 'lucide-react';
+
 interface Skill {
   name: string;
   level: number;
   category: string;
+  icon?: React.ReactNode;
 }
+
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  
   const skills: Skill[] = [
-  // Programming
-  {
-    name: 'Python',
-    level: 85,
-    category: 'programming'
-  }, {
-    name: 'Data Structures & Algorithms',
-    level: 75,
-    category: 'programming'
-  }, {
-    name: 'Object-Oriented Programming',
-    level: 80,
-    category: 'programming'
-  },
-  // Math & Statistics
-  {
-    name: 'Linear Algebra',
-    level: 70,
-    category: 'math'
-  }, {
-    name: 'Calculus',
-    level: 65,
-    category: 'math'
-  }, {
-    name: 'Probability & Statistics',
-    level: 80,
-    category: 'math'
-  },
-  // Data Tools
-  {
-    name: 'NumPy',
-    level: 85,
-    category: 'tools'
-  }, {
-    name: 'Pandas',
-    level: 90,
-    category: 'tools'
-  }, {
-    name: 'Matplotlib',
-    level: 75,
-    category: 'tools'
-  }, {
-    name: 'Scikit-learn',
-    level: 70,
-    category: 'tools'
-  }, {
-    name: 'Jupyter',
-    level: 85,
-    category: 'tools'
-  },
-  // Advanced ML
-  {
-    name: 'Machine Learning',
-    level: 75,
-    category: 'ml'
-  }, {
-    name: 'Deep Learning',
-    level: 65,
-    category: 'ml'
-  }, {
-    name: 'Regression Analysis',
-    level: 80,
-    category: 'ml'
-  }, {
-    name: 'Bayesian Statistics',
-    level: 60,
-    category: 'ml'
-  },
-  // Domains
-  {
-    name: 'NLP',
-    level: 65,
-    category: 'domains'
-  }, {
-    name: 'Spatial Analytics',
-    level: 60,
-    category: 'domains'
-  }, {
-    name: 'Data Visualization',
-    level: 80,
-    category: 'domains'
-  }, {
-    name: 'Database Systems',
-    level: 75,
-    category: 'domains'
-  }];
+    // Programming
+    {
+      name: 'Python',
+      level: 85,
+      category: 'programming',
+      icon: <Box className="text-blue-500" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Data Structures & Algorithms',
+      level: 75,
+      category: 'programming',
+      icon: <Code className="text-green-500" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Object-Oriented Programming',
+      level: 80,
+      category: 'programming',
+      icon: <Code className="text-yellow-500" strokeWidth={1.5} />
+    },
+    
+    // Math & Statistics
+    {
+      name: 'Linear Algebra',
+      level: 70,
+      category: 'math',
+      icon: <Brain className="text-purple-400" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Calculus',
+      level: 65,
+      category: 'math',
+      icon: <Brain className="text-purple-300" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Probability & Statistics',
+      level: 80,
+      category: 'math',
+      icon: <BarChart3 className="text-purple-500" strokeWidth={1.5} />
+    },
+    
+    // Data Tools
+    {
+      name: 'NumPy',
+      level: 85,
+      category: 'tools',
+      icon: <Box className="text-blue-400" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Pandas',
+      level: 90,
+      category: 'tools',
+      icon: <Database className="text-blue-300" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Matplotlib',
+      level: 75,
+      category: 'tools',
+      icon: <BarChart3 className="text-green-400" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Scikit-learn',
+      level: 70,
+      category: 'tools',
+      icon: <Brain className="text-orange-400" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Jupyter',
+      level: 85,
+      category: 'tools',
+      icon: <Box className="text-orange-300" strokeWidth={1.5} />
+    },
+    
+    // Advanced ML
+    {
+      name: 'Machine Learning',
+      level: 75,
+      category: 'ml',
+      icon: <Bot className="text-blue-500" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Deep Learning',
+      level: 65,
+      category: 'ml',
+      icon: <Brain className="text-blue-600" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Regression Analysis',
+      level: 80,
+      category: 'ml',
+      icon: <BarChart3 className="text-purple-500" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Bayesian Statistics',
+      level: 60,
+      category: 'ml',
+      icon: <Bot className="text-purple-400" strokeWidth={1.5} />
+    },
+    
+    // Domains
+    {
+      name: 'NLP',
+      level: 65,
+      category: 'domains',
+      icon: <Globe className="text-green-500" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Spatial Analytics',
+      level: 60,
+      category: 'domains',
+      icon: <Globe className="text-blue-400" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Data Visualization',
+      level: 80,
+      category: 'domains',
+      icon: <ChartBar className="text-purple-400" strokeWidth={1.5} />
+    }, 
+    {
+      name: 'Database Systems',
+      level: 75,
+      category: 'domains',
+      icon: <Database className="text-blue-500" strokeWidth={1.5} />
+    }
+  ];
+  
   const filteredSkills = activeCategory === 'all' ? skills : skills.filter(skill => skill.category === activeCategory);
+  
   return <section id="skills" className="py-20">
       <div className="container px-4">
         <div className="text-center mb-16">
@@ -106,7 +151,7 @@ const SkillsSection = () => {
         </div>
         
         <Tabs defaultValue="all" className="w-full">
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-12 overflow-x-auto">
             <TabsList className="bg-gray-800/60 p-1 rounded-lg">
               <TabsTrigger value="all" className="data-[state=active]:bg-purple-600 data-[state=active]:text-white rounded-md px-4 py-2" onClick={() => setActiveCategory('all')}>
                 All Skills
@@ -130,20 +175,33 @@ const SkillsSection = () => {
           </div>
           
           <TabsContent value={activeCategory} className="mt-0">
-            <div className="grid gap-y-6">
-              {filteredSkills.map(skill => <div key={skill.name} className="animate-fade-in">
-                  <div className="flex justify-between mb-2">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-purple-400">{skill.level}%</span>
-                  </div>
-                  <div className="h-3 w-full bg-gray-800 rounded-full">
-                    <div className="skill-bar" style={{
-                  width: `${skill.level}%`
-                }}>
-                      <div className="absolute -right-1 -top-1 h-5 w-5 rounded-full bg-white border-4 border-purple-600"></div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {filteredSkills.map(skill => (
+                <div 
+                  key={skill.name} 
+                  className="bg-gray-800/30 rounded-xl p-4 hover:bg-gray-800/50 border border-gray-700 hover:border-purple-500/50 transition-all animate-fade-in"
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="bg-gray-900 p-2 rounded-lg">
+                      {skill.icon}
                     </div>
+                    <span className="font-medium text-sm md:text-base">{skill.name}</span>
                   </div>
-                </div>)}
+                  <div className="mt-2 flex items-center justify-between">
+                    <div className="flex space-x-1">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <div 
+                          key={star}
+                          className={`h-1.5 w-4 rounded-full ${
+                            Math.round(skill.level / 20) >= star ? 'bg-purple-500' : 'bg-gray-700'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-xs text-purple-300">{skill.level}%</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </TabsContent>
         </Tabs>
@@ -204,12 +262,32 @@ const SkillsSection = () => {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {['Python', 'NumPy', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Jupyter', 'SQL', 'Git', 'TensorFlow', 'PyTorch', 'Tableau', 'Power BI'].map(tool => <div key={tool} className="bg-gray-800 p-4 rounded-lg text-center hover:bg-purple-900/40 hover:border-purple-500 border border-gray-700 transition-all">
-                {tool}
-              </div>)}
+            {['Python', 'NumPy', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Jupyter', 'SQL', 'Git', 'TensorFlow', 'PyTorch', 'Tableau', 'Power BI'].map(tool => (
+              <div 
+                key={tool} 
+                className="bg-gray-800/20 p-4 rounded-lg text-center hover:bg-purple-900/20 border border-gray-700 hover:border-purple-500 transition-all flex items-center justify-center gap-2"
+              >
+                <div className="w-6 h-6 flex items-center justify-center">
+                  {tool === 'Python' && <Box className="text-blue-500" size={18} />}
+                  {tool === 'NumPy' && <Box className="text-blue-400" size={18} />}
+                  {tool === 'Pandas' && <Database className="text-blue-300" size={18} />}
+                  {tool === 'Matplotlib' && <BarChart3 className="text-green-400" size={18} />}
+                  {tool === 'Scikit-learn' && <Brain className="text-orange-400" size={18} />}
+                  {tool === 'Jupyter' && <Box className="text-orange-300" size={18} />}
+                  {tool === 'SQL' && <Database className="text-purple-400" size={18} />}
+                  {tool === 'Git' && <Code className="text-red-400" size={18} />}
+                  {tool === 'TensorFlow' && <Bot className="text-yellow-500" size={18} />}
+                  {tool === 'PyTorch' && <Bot className="text-red-500" size={18} />}
+                  {tool === 'Tableau' && <ChartBar className="text-blue-500" size={18} />}
+                  {tool === 'Power BI' && <ChartBar className="text-yellow-400" size={18} />}
+                </div>
+                <span>{tool}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>;
 };
+
 export default SkillsSection;
