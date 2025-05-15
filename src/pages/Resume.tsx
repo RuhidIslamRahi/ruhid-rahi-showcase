@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardContent } from '@/components/ui/card';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 import { toast } from '@/hooks/use-toast';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -161,33 +161,33 @@ const Resume = () => {
                     />
                   </div>
                   
-                  <h2 className="text-2xl font-bold gradient-text mb-2 text-center">{personalInfo.name}</h2>
-                  <p className="text-gray-300 mb-4 text-center">{personalInfo.title}</p>
+                  <h2 className="text-2xl font-bold gradient-text mb-2 text-center">Ruhid Islam Rahi</h2>
+                  <p className="text-gray-300 mb-4 text-center">Python || Data Science @UIU || Learning AI & ML</p>
                   
                   <div className="space-y-3 w-full">
                     <div className="flex items-center gap-3">
                       <div className="bg-purple-900/50 p-2 rounded-full">
                         <Mail className="w-4 h-4 text-purple-400" />
                       </div>
-                      <span className="text-sm">{personalInfo.email}</span>
+                      <span className="text-sm">ruhidislamrahi@gmail.com</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="bg-purple-900/50 p-2 rounded-full">
                         <Phone className="w-4 h-4 text-purple-400" />
                       </div>
-                      <span className="text-sm">{personalInfo.phone}</span>
+                      <span className="text-sm">+880 1779059579</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="bg-purple-900/50 p-2 rounded-full">
                         <Calendar className="w-4 h-4 text-purple-400" />
                       </div>
-                      <span className="text-sm">{personalInfo.birthday}</span>
+                      <span className="text-sm">10 November</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="bg-purple-900/50 p-2 rounded-full">
                         <MapPin className="w-4 h-4 text-purple-400" />
                       </div>
-                      <span className="text-sm">{personalInfo.location}</span>
+                      <span className="text-sm">Dhaka, Bangladesh</span>
                     </div>
                   </div>
                 </div>
@@ -224,13 +224,14 @@ const Resume = () => {
                               axisLine={false}
                             />
                             <Tooltip 
-                              content={(props) => (
-                                <ChartTooltipContent 
+                              content={(props) => {
+                                // This fixes the typing issue by returning the component directly
+                                return <ChartTooltipContent 
                                   {...props}
                                   nameKey="category"
                                   labelKey="name"
-                                />
-                              )}
+                                />;
+                              }}
                             />
                             <Bar 
                               dataKey="value" 
