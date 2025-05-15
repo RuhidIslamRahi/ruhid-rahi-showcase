@@ -1,10 +1,11 @@
+
 import React, { useRef } from 'react';
 import Layout from '@/components/Layout';
 import { Book, Briefcase, Calendar, Download, Mail, MapPin, Phone, ChevronRight, Award, Brain, Code, Database } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardContent } from '@/components/ui/card';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, TooltipProps } from 'recharts';
 import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 import { toast } from '@/hooks/use-toast';
 import html2canvas from 'html2canvas';
@@ -223,13 +224,15 @@ const Resume = () => {
                               axisLine={false}
                             />
                             <Tooltip 
-                              content={(props) => {
-                                if (!props) return null;
+                              content={({ active, payload, label }) => {
+                                if (!active || !payload || payload.length === 0) return null;
                                 return (
                                   <ChartTooltipContent 
-                                    {...props}
                                     nameKey="category"
                                     labelKey="name"
+                                    active={active}
+                                    payload={payload}
+                                    label={label}
                                   />
                                 );
                               }}
