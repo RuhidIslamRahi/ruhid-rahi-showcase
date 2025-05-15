@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import Layout from '@/components/Layout';
 import { Book, Briefcase, Calendar, Download, Mail, MapPin, Phone, ChevronRight, Award, Brain, Code, Database } from 'lucide-react';
@@ -225,12 +224,14 @@ const Resume = () => {
                             />
                             <Tooltip 
                               content={(props) => {
-                                // This fixes the typing issue by returning the component directly
-                                return <ChartTooltipContent 
-                                  {...props}
-                                  nameKey="category"
-                                  labelKey="name"
-                                />;
+                                if (!props) return null;
+                                return (
+                                  <ChartTooltipContent 
+                                    {...props}
+                                    nameKey="category"
+                                    labelKey="name"
+                                  />
+                                );
                               }}
                             />
                             <Bar 
