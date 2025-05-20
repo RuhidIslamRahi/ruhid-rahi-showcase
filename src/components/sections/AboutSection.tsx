@@ -2,6 +2,7 @@
 import { User, Mail, MapPin, ExternalLink, Download } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const AboutSection = () => {
   const handleDownload = () => {
@@ -55,9 +56,12 @@ const AboutSection = () => {
             </div>
             
             <div className="flex flex-wrap gap-4">
-              <a href="#contact" className="btn btn-primary">
+              <Link to="/#contact" className="btn btn-primary">
                 Contact Me
-              </a>
+              </Link>
+              <Link to="/resume" className="btn btn-outline">
+                View Resume
+              </Link>
               <Button 
                 variant="outline" 
                 className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white"
