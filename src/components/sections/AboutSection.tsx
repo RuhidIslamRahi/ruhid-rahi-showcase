@@ -1,8 +1,14 @@
 
-import { User, Mail, MapPin, ExternalLink } from 'lucide-react';
+import { User, Mail, MapPin, ExternalLink, Download } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 
 const AboutSection = () => {
+  const handleDownload = () => {
+    // Open Google Drive link in a new tab
+    window.open('https://drive.google.com/drive/folders/yourfolderid', '_blank');
+  };
+
   return (
     <section id="about" className="py-20 min-h-screen flex items-center">
       <div className="container px-4">
@@ -48,9 +54,19 @@ const AboutSection = () => {
               </div>
             </div>
             
-            <a href="#contact" className="btn btn-primary">
-              Contact Me
-            </a>
+            <div className="flex flex-wrap gap-4">
+              <a href="#contact" className="btn btn-primary">
+                Contact Me
+              </a>
+              <Button 
+                variant="outline" 
+                className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white"
+                onClick={handleDownload}
+              >
+                <Download className="mr-2" size={16} />
+                Download Resume
+              </Button>
+            </div>
           </div>
           
           <div className="order-1 md:order-2 flex justify-center">
