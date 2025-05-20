@@ -1,5 +1,6 @@
 
 import { User, Mail, MapPin, ExternalLink } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const AboutSection = () => {
   return (
@@ -52,16 +53,20 @@ const AboutSection = () => {
             </a>
           </div>
           
-          <div className="order-1 md:order-2">
-            <div className="rounded-lg overflow-hidden border-2 border-purple-500 shadow-lg shadow-purple-500/20 relative">
-              {/* Purple gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-700/20 via-transparent to-purple-700/20"></div>
-              {/* Using the uploaded image */}
-              <img 
-                src="/lovable-uploads/eb347c00-c06d-4953-a4ed-17e725cacabc.png" 
-                alt="Ruhid Islam Rahi" 
-                className="w-full h-[400px] object-cover"
-              />
+          <div className="order-1 md:order-2 flex justify-center">
+            <div className="relative w-64 h-64 md:w-80 md:h-80">
+              {/* Using the Avatar component for a round image */}
+              <Avatar className="w-full h-full border-4 border-purple-500 shadow-lg shadow-purple-500/20">
+                <AvatarImage 
+                  src="/lovable-uploads/eb347c00-c06d-4953-a4ed-17e725cacabc.png" 
+                  alt="Ruhid Islam Rahi"
+                  className="object-cover"
+                />
+                <AvatarFallback className="text-4xl bg-purple-900">RIR</AvatarFallback>
+              </Avatar>
+              
+              {/* Purple gradient ring effect */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-700/20 via-transparent to-purple-700/30 -z-10 blur-md transform scale-105"></div>
             </div>
           </div>
         </div>
