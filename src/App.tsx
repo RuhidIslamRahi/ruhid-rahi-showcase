@@ -32,7 +32,23 @@ const ScrollToHashElement = () => {
 // Set the document title
 const TitleSetter = () => {
   useEffect(() => {
+    // Force the title update and prevent any other scripts from changing it
     document.title = "Ruhid Rahi | Portfolio";
+    
+    // Use an additional event listener to ensure the title stays correct
+    const observer = new MutationObserver(() => {
+      if (document.title !== "Ruhid Rahi | Portfolio") {
+        document.title = "Ruhid Rahi | Portfolio";
+      }
+    });
+    
+    // Observe title changes
+    observer.observe(document.querySelector('title'), { 
+      childList: true, 
+      characterData: true 
+    });
+    
+    return () => observer.disconnect();
   }, []);
   
   return null;
