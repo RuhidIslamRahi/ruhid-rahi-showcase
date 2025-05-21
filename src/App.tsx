@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Certifications from "./pages/Certifications";
 import Resume from "./pages/Resume";
@@ -29,6 +29,15 @@ const ScrollToHashElement = () => {
   return null;
 };
 
+// Set the document title
+const TitleSetter = () => {
+  useEffect(() => {
+    document.title = "Ruhid Rahi | Portfolio";
+  }, []);
+  
+  return null;
+};
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -37,12 +46,12 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <TitleSetter />
         <ScrollToHashElement />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/certifications" element={<Certifications />} />
           <Route path="/resume" element={<Resume />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
