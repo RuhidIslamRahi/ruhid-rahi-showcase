@@ -1,25 +1,21 @@
-
 import { User, Mail, MapPin, ExternalLink, Download } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import SectionHeader from "@/components/SectionHeader";
-
 const AboutSection = () => {
   const handleDownload = () => {
     // Open Google Drive link in a new tab
     window.open('https://drive.google.com/drive/folders/yourfolderid', '_blank');
   };
-
-  return (
-    <section id="about" className="py-20 min-h-screen flex items-center">
+  return <section id="about" className="py-20 min-h-screen flex items-center">
       <div className="container px-4">
         <div className="text-center mb-16">
           <SectionHeader>About Me</SectionHeader>
         </div>
         
         <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="order-2 md:order-1">
+          <div className="order-2 md:order-1 my-0 px-0 mx-[30px]">
             <h3 className="text-2xl font-bold mb-4 gradient-text">Who am I?</h3>
             <h4 className="text-xl mb-4">
               I'm Ruhid Islam Rahi, a <span className="text-purple-500">Data Science Student</span>
@@ -64,11 +60,7 @@ const AboutSection = () => {
               <Link to="/resume" className="btn btn-outline">
                 View Resume
               </Link>
-              <Button 
-                variant="outline" 
-                className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white"
-                onClick={handleDownload}
-              >
+              <Button variant="outline" className="border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white" onClick={handleDownload}>
                 <Download className="mr-2" size={16} />
                 Download Resume
               </Button>
@@ -79,11 +71,7 @@ const AboutSection = () => {
             <div className="relative w-64 h-64 md:w-80 md:h-80">
               {/* Using the Avatar component for a round image */}
               <Avatar className="w-full h-full border-4 border-purple-500 shadow-lg shadow-purple-500/20">
-                <AvatarImage 
-                  src="/lovable-uploads/eb347c00-c06d-4953-a4ed-17e725cacabc.png" 
-                  alt="Ruhid Islam Rahi"
-                  className="object-cover"
-                />
+                <AvatarImage src="/lovable-uploads/eb347c00-c06d-4953-a4ed-17e725cacabc.png" alt="Ruhid Islam Rahi" className="object-cover" />
                 <AvatarFallback className="text-4xl bg-purple-900">RIR</AvatarFallback>
               </Avatar>
               
@@ -93,8 +81,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
