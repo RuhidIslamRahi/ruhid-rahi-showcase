@@ -1,11 +1,10 @@
-
 import React, { useRef } from 'react';
 import Layout from '@/components/Layout';
 import { Book, Briefcase, Calendar, Download, Mail, MapPin, Phone, ChevronRight, Award, Brain, Code, Database } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardContent } from '@/components/ui/card';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, TooltipProps } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 import { toast } from '@/hooks/use-toast';
 import html2canvas from 'html2canvas';
@@ -132,74 +131,68 @@ const Resume = () => {
             <h1 className="text-4xl font-bold mb-2">
               <span className="gradient-text">Resume</span>
             </h1>
-            <div className="w-16 h-1 bg-purple-600 mb-4"></div>
-            <p className="text-gray-300">My education, experience, and skills</p>
+            <div className="w-16 h-1 bg-primary mb-4"></div>
+            <p className="text-muted-foreground">My education, experience, and skills</p>
           </div>
-          
-          {/* Download Resume Button */}
           <Button 
             variant="default" 
-            className="gap-2 mt-4 md:mt-0 bg-purple-600 hover:bg-purple-700"
+            className="gap-2 mt-4 md:mt-0 bg-primary hover:bg-primary/90"
             onClick={downloadResume}
           >
             <Download className="w-4 h-4" />
             Download Resume
           </Button>
         </div>
-        
         <div className="grid grid-cols-1 gap-6" ref={resumeRef}>
           {/* Personal Info Section - Modern Card */}
-          <Card className="bg-gradient-to-br from-gray-800/80 to-gray-900/90 border-gray-700 overflow-hidden">
+          <Card className="bg-card border-border overflow-hidden">
             <CardContent className="p-0">
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/3 p-6 bg-gradient-to-br from-purple-900/40 to-gray-900/90 flex flex-col items-center justify-center">
-                  <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-600 mb-6">
+                <div className="md:w-1/3 p-6 bg-gradient-to-br from-primary/10 to-background flex flex-col items-center justify-center">
+                  <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary mb-6">
                     <img 
                       src="/lovable-uploads/eb347c00-c06d-4953-a4ed-17e725cacabc.png" 
                       alt="Ruhid Islam Rahi" 
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  
                   <h2 className="text-2xl font-bold gradient-text mb-2 text-center">Ruhid Islam Rahi</h2>
-                  <p className="text-gray-300 mb-4 text-center">Python || Data Science @UIU || Learning AI & ML</p>
-                  
+                  <p className="text-muted-foreground mb-4 text-center">Python || Data Science @UIU || Learning AI & ML</p>
                   <div className="space-y-3 w-full">
                     <div className="flex items-center gap-3">
-                      <div className="bg-purple-900/50 p-2 rounded-full">
-                        <Mail className="w-4 h-4 text-purple-400" />
+                      <div className="bg-primary/10 p-2 rounded-full">
+                        <Mail className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-sm">ruhidislamrahi@gmail.com</span>
+                      <span className="text-sm text-foreground">ruhidislamrahi@gmail.com</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="bg-purple-900/50 p-2 rounded-full">
-                        <Phone className="w-4 h-4 text-purple-400" />
+                      <div className="bg-primary/10 p-2 rounded-full">
+                        <Phone className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-sm">+880 1779059579</span>
+                      <span className="text-sm text-foreground">+880 1779059579</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="bg-purple-900/50 p-2 rounded-full">
-                        <Calendar className="w-4 h-4 text-purple-400" />
+                      <div className="bg-primary/10 p-2 rounded-full">
+                        <Calendar className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-sm">10 November</span>
+                      <span className="text-sm text-foreground">10 November</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <div className="bg-purple-900/50 p-2 rounded-full">
-                        <MapPin className="w-4 h-4 text-purple-400" />
+                      <div className="bg-primary/10 p-2 rounded-full">
+                        <MapPin className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-sm">Dhaka, Bangladesh</span>
+                      <span className="text-sm text-foreground">Dhaka, Bangladesh</span>
                     </div>
                   </div>
                 </div>
-                
                 <div className="md:w-2/3 p-6">
                   <div className="mb-8">
-                    <h3 className="text-xl font-bold mb-4 flex items-center">
-                      <Brain className="mr-2 text-purple-500" />
+                    <h3 className="text-xl font-bold mb-4 flex items-center text-foreground">
+                      <Brain className="mr-2 text-primary" />
                       Skills Visualization
                     </h3>
                     <div className="h-[300px] w-full">
-                      <ChartContainer 
+                      <ChartContainer
                         config={skillsConfig}
                         className="h-full w-full"
                       >
@@ -212,8 +205,9 @@ const Resume = () => {
                             <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} />
                             <XAxis 
                               type="number" 
-                              domain={[0, 100]} 
+                              domain={[0, 100]}
                               tickCount={6}
+                              tick={{ fill: 'currentColor' }}
                             />
                             <YAxis 
                               dataKey="name" 
@@ -222,6 +216,7 @@ const Resume = () => {
                               width={70}
                               tickLine={false}
                               axisLine={false}
+                              tick={{ fill: 'currentColor' }}
                             />
                             <Tooltip 
                               content={({ active, payload, label }) => {
@@ -249,46 +244,45 @@ const Resume = () => {
                       </ChartContainer>
                     </div>
                   </div>
-                
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-gray-800/40 rounded-lg p-4 border border-gray-700">
-                      <h4 className="font-semibold text-purple-400 mb-2">Core Skills</h4>
+                    <div className="bg-muted rounded-lg p-4 border border-border">
+                      <h4 className="font-semibold text-primary mb-2">Core Skills</h4>
                       <ul className="space-y-1.5">
-                        <li className="flex items-center">
-                          <ChevronRight className="w-4 h-4 text-purple-500 mr-2" />
+                        <li className="flex items-center text-foreground">
+                          <ChevronRight className="w-4 h-4 text-primary mr-2" />
                           Python Programming
                         </li>
-                        <li className="flex items-center">
-                          <ChevronRight className="w-4 h-4 text-purple-500 mr-2" />
+                        <li className="flex items-center text-foreground">
+                          <ChevronRight className="w-4 h-4 text-primary mr-2" />
                           Data Structures & Algorithms
                         </li>
-                        <li className="flex items-center">
-                          <ChevronRight className="w-4 h-4 text-purple-500 mr-2" />
+                        <li className="flex items-center text-foreground">
+                          <ChevronRight className="w-4 h-4 text-primary mr-2" />
                           Object-Oriented Programming
                         </li>
-                        <li className="flex items-center">
-                          <ChevronRight className="w-4 h-4 text-purple-500 mr-2" />
+                        <li className="flex items-center text-foreground">
+                          <ChevronRight className="w-4 h-4 text-primary mr-2" />
                           Mathematics for Data Science
                         </li>
                       </ul>
                     </div>
-                    <div className="bg-gray-800/40 rounded-lg p-4 border border-gray-700">
-                      <h4 className="font-semibold text-purple-400 mb-2">Tools & Libraries</h4>
+                    <div className="bg-muted rounded-lg p-4 border border-border">
+                      <h4 className="font-semibold text-primary mb-2">Tools & Libraries</h4>
                       <ul className="space-y-1.5">
-                        <li className="flex items-center">
-                          <ChevronRight className="w-4 h-4 text-purple-500 mr-2" />
+                        <li className="flex items-center text-foreground">
+                          <ChevronRight className="w-4 h-4 text-primary mr-2" />
                           NumPy, Pandas, Matplotlib
                         </li>
-                        <li className="flex items-center">
-                          <ChevronRight className="w-4 h-4 text-purple-500 mr-2" />
+                        <li className="flex items-center text-foreground">
+                          <ChevronRight className="w-4 h-4 text-primary mr-2" />
                           Scikit-learn, TensorFlow
                         </li>
-                        <li className="flex items-center">
-                          <ChevronRight className="w-4 h-4 text-purple-500 mr-2" />
+                        <li className="flex items-center text-foreground">
+                          <ChevronRight className="w-4 h-4 text-primary mr-2" />
                           Database Systems
                         </li>
-                        <li className="flex items-center">
-                          <ChevronRight className="w-4 h-4 text-purple-500 mr-2" />
+                        <li className="flex items-center text-foreground">
+                          <ChevronRight className="w-4 h-4 text-primary mr-2" />
                           Data Visualization Tools
                         </li>
                       </ul>
@@ -298,86 +292,80 @@ const Resume = () => {
               </div>
             </CardContent>
           </Card>
-          
           <ScrollArea className="h-full w-full">
             <div className="space-y-8 pb-8">
               {/* Education Section */}
-              <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+              <div className="bg-muted rounded-xl p-6 border border-border">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="bg-purple-900/50 p-3 rounded-lg">
-                    <Book className="text-purple-400 w-6 h-6" />
+                  <div className="bg-primary/10 p-3 rounded-lg">
+                    <Book className="text-primary w-6 h-6" />
                   </div>
-                  <h2 className="text-2xl font-bold">Education</h2>
+                  <h2 className="text-2xl font-bold text-foreground">Education</h2>
                 </div>
-                
                 <div className="space-y-8">
                   {education.map((edu) => (
-                    <div key={edu.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
-                      <div className="absolute w-4 h-4 bg-purple-600 rounded-full -left-[9px] top-1.5"></div>
-                      <div className="bg-gray-800/50 p-5 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-all">
+                    <div key={edu.id} className="relative pl-6 border-l-2 border-primary ml-3">
+                      <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-1.5"></div>
+                      <div className="bg-card p-5 rounded-lg border border-border hover:border-primary/40 transition-all">
                         <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-                          <h3 className="text-xl font-semibold">{edu.school}</h3>
-                          <span className="bg-purple-900/30 text-purple-300 px-3 py-1 rounded-full text-xs inline-flex items-center mt-2 md:mt-0">
+                          <h3 className="text-xl font-semibold text-foreground">{edu.school}</h3>
+                          <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs inline-flex items-center mt-2 md:mt-0">
                             <Calendar className="w-3 h-3 mr-1" />
                             {edu.period}
                           </span>
                         </div>
-                        <p className="text-gray-400 mb-2">{edu.degree}</p>
+                        <p className="text-muted-foreground mb-2">{edu.degree}</p>
                         <p className="text-muted-foreground">{edu.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              
               {/* Experience Section */}
-              <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+              <div className="bg-muted rounded-xl p-6 border border-border">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="bg-purple-900/50 p-3 rounded-lg">
-                    <Briefcase className="text-purple-400 w-6 h-6" />
+                  <div className="bg-primary/10 p-3 rounded-lg">
+                    <Briefcase className="text-primary w-6 h-6" />
                   </div>
-                  <h2 className="text-2xl font-bold">Experience</h2>
+                  <h2 className="text-2xl font-bold text-foreground">Experience</h2>
                 </div>
-                
                 <div className="space-y-8">
                   {experience.map((exp) => (
-                    <div key={exp.id} className="relative pl-6 border-l-2 border-purple-600 ml-3">
-                      <div className="absolute w-4 h-4 bg-purple-600 rounded-full -left-[9px] top-1.5"></div>
-                      <div className="bg-gray-800/50 p-5 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-all">
+                    <div key={exp.id} className="relative pl-6 border-l-2 border-primary ml-3">
+                      <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-1.5"></div>
+                      <div className="bg-card p-5 rounded-lg border border-border hover:border-primary/40 transition-all">
                         <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
-                          <h3 className="text-xl font-semibold">{exp.position}</h3>
-                          <span className="bg-purple-900/30 text-purple-300 px-3 py-1 rounded-full text-xs inline-flex items-center mt-2 md:mt-0">
+                          <h3 className="text-xl font-semibold text-foreground">{exp.position}</h3>
+                          <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs inline-flex items-center mt-2 md:mt-0">
                             <Calendar className="w-3 h-3 mr-1" />
                             {exp.period}
                           </span>
                         </div>
-                        <p className="text-gray-400 mb-2">{exp.company}</p>
+                        <p className="text-muted-foreground mb-2">{exp.company}</p>
                         <p className="text-muted-foreground">{exp.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-              
               {/* Key Areas of Study */}
-              <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700">
+              <div className="bg-muted rounded-xl p-6 border border-border">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="bg-purple-900/50 p-3 rounded-lg">
-                    <Award className="text-purple-400 w-6 h-6" />
+                  <div className="bg-primary/10 p-3 rounded-lg">
+                    <Award className="text-primary w-6 h-6" />
                   </div>
-                  <h2 className="text-2xl font-bold">Key Areas of Study</h2>
+                  <h2 className="text-2xl font-bold text-foreground">Key Areas of Study</h2>
                 </div>
-                
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <Card className="bg-gray-800/50 border-gray-700 hover:bg-gray-800/80 transition-colors">
+                  <Card className="bg-card border-border hover:bg-muted/80 transition-colors">
                     <CardContent className="pt-6">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="bg-purple-900/50 p-3 rounded-lg">
-                          <Code className="text-purple-400" size={24} />
+                        <div className="bg-primary/10 p-3 rounded-lg">
+                          <Code className="text-primary" size={24} />
                         </div>
-                        <h3 className="text-xl font-semibold">Core Programming</h3>
+                        <h3 className="text-xl font-semibold text-foreground">Core Programming</h3>
                       </div>
-                      <ul className="list-disc list-inside space-y-2 text-gray-300">
+                      <ul className="list-disc list-inside space-y-2 text-foreground">
                         <li>Python Programming</li>
                         <li>Data Structures & Algorithms</li>
                         <li>Object-Oriented Programming</li>
@@ -385,16 +373,15 @@ const Resume = () => {
                       </ul>
                     </CardContent>
                   </Card>
-                  
-                  <Card className="bg-gray-800/50 border-gray-700 hover:bg-gray-800/80 transition-colors">
+                  <Card className="bg-card border-border hover:bg-muted/80 transition-colors">
                     <CardContent className="pt-6">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="bg-purple-900/50 p-3 rounded-lg">
-                          <Brain className="text-purple-400" size={24} />
+                        <div className="bg-primary/10 p-3 rounded-lg">
+                          <Brain className="text-primary" size={24} />
                         </div>
-                        <h3 className="text-xl font-semibold">Data Analytics</h3>
+                        <h3 className="text-xl font-semibold text-foreground">Data Analytics</h3>
                       </div>
-                      <ul className="list-disc list-inside space-y-2 text-gray-300">
+                      <ul className="list-disc list-inside space-y-2 text-foreground">
                         <li>Statistical Analysis</li>
                         <li>Data Wrangling & Preparation</li>
                         <li>Visualization Techniques</li>
@@ -402,16 +389,15 @@ const Resume = () => {
                       </ul>
                     </CardContent>
                   </Card>
-                  
-                  <Card className="bg-gray-800/50 border-gray-700 hover:bg-gray-800/80 transition-colors">
+                  <Card className="bg-card border-border hover:bg-muted/80 transition-colors">
                     <CardContent className="pt-6">
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="bg-purple-900/50 p-3 rounded-lg">
-                          <Database className="text-purple-400" size={24} />
+                        <div className="bg-primary/10 p-3 rounded-lg">
+                          <Database className="text-primary" size={24} />
                         </div>
-                        <h3 className="text-xl font-semibold">Technologies</h3>
+                        <h3 className="text-xl font-semibold text-foreground">Technologies</h3>
                       </div>
-                      <ul className="list-disc list-inside space-y-2 text-gray-300">
+                      <ul className="list-disc list-inside space-y-2 text-foreground">
                         <li>Database Systems</li>
                         <li>Machine Learning Libraries</li>
                         <li>Big Data Technologies</li>
