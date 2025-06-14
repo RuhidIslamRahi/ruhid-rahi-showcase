@@ -1,6 +1,6 @@
-
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter } from 'lucide-react';
+import SectionHeader from "@/components/SectionHeader";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -32,8 +32,7 @@ const ContactSection = () => {
     <section id="contact" className="py-20 bg-black">
       <div className="container px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">Get In Touch</h2>
-          <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-purple-600 to-transparent mt-2"></div>
+          <SectionHeader>Get In Touch</SectionHeader>
         </div>
         
         <div className="grid md:grid-cols-2 gap-10">

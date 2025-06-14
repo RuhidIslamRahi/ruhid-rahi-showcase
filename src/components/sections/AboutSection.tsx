@@ -1,8 +1,8 @@
-
 import { User, Mail, MapPin, ExternalLink, Download } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import SectionHeader from "@/components/SectionHeader";
 
 const AboutSection = () => {
   const handleDownload = () => {
@@ -14,8 +14,7 @@ const AboutSection = () => {
     <section id="about" className="py-20 min-h-screen flex items-center">
       <div className="container px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">About Me</h2>
-          <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-purple-600 to-transparent mt-2"></div>
+          <SectionHeader>About Me</SectionHeader>
         </div>
         
         <div className="grid md:grid-cols-2 gap-10 items-center">

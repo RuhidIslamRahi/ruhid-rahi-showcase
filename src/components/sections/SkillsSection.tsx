@@ -1,8 +1,8 @@
-
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Brain, Bot, Globe, Code, Database, ChartBar, Box, BarChart3 } from 'lucide-react';
+import SectionHeader from "@/components/SectionHeader";
 
 interface Skill {
   name: string;
@@ -145,8 +145,7 @@ const SkillsSection = () => {
   return <section id="skills" className="py-20">
       <div className="container px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">My Skills</h2>
-          <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-purple-600 to-transparent mt-2"></div>
+          <SectionHeader>My Skills</SectionHeader>
           <p className="mt-6 text-gray-300 max-w-3xl mx-auto">Applications across data science, programming, and system design.</p>
         </div>
         
