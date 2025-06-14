@@ -4,22 +4,41 @@
 
 @layer base {
   :root {
+    /* Modern soft light colors for light mode */
+    --background: 0 0% 98%;         /* Soft off-white (hsl(0,0%,98%)) */
+    --foreground: 222 47% 11%;      /* Deep modern gray (hsl(222,47%,11%)) */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 248 23% 92%;       /* Soft pale indigo for subtle backgrounds */
+    --secondary-foreground: 222 47% 11%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 222 20% 41%;
+    --accent: 255 100% 94%;         /* Soft purple accent bg */
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 14% 96%;
+    --input: 220 14% 96%;
+    --ring: 240 4.9% 83.9%;
+  }
+
+  .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 210 40% 98%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
     --accent: 240 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
@@ -34,7 +53,7 @@
   }
 
   body {
-    @apply bg-light text-dark dark:bg-dark dark:text-light antialiased;
+    @apply bg-background text-foreground antialiased;
   }
 }
 
