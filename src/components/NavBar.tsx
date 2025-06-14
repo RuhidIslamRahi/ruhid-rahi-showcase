@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from 'react-router-dom';
 
@@ -8,15 +8,34 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("theme");
+      if (stored) return stored === "dark";
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    return false;
+  });
+
   const location = useLocation();
+
+  // Toggle html class for Tailwind dark mode
+  useEffect(() => {
+    const html = document.documentElement;
+    if (darkMode) {
+      html.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
 
   // Handle scrolling and section detection
   useEffect(() => {
     const handleScroll = () => {
-      // Header background change on scroll
       setIsScrolled(window.scrollY > 50);
 
-      // Detect which section is in view - only on home page
       if (location.pathname === '/') {
         const sections = ['home', 'about', 'projects', 'skills', 'contact'];
         const currentPos = window.scrollY + 100;
@@ -70,12 +89,10 @@ const NavBar = () => {
     setIsOpen(false);
     if (path.startsWith('/#')) {
       if (location.pathname === '/') {
-        // If already on home page, scroll to section
         document.getElementById(id)?.scrollIntoView({
           behavior: 'smooth'
         });
       }
-      // If on another page, navigation to home with hash will be handled by Link component
     }
   };
 
@@ -91,16 +108,36 @@ const NavBar = () => {
         <div className="text-2xl font-bold gradient-text">Ruhid's Portfolio</div>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-4">
+        <nav className="hidden md:flex space-x-4 items-center">
           {navLinks.map(link => <Link key={link.id} to={link.path} className={cn("nav-link", isActive(link.id, link.path) && "active")} onClick={() => handleNavigation(link.path, link.id)}>
               {link.title}
             </Link>)}
+          {/* Dark mode toggle button */}
+          <button
+            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            onClick={() => setDarkMode(v => !v)}
+            className={cn(
+              "ml-4 p-2 rounded-full bg-muted hover:bg-accent border border-border transition-colors",
+              "text-primary" // text color fits in both themes
+            )}
+          >
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
         </nav>
         
-        {/* Mobile Menu Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Menu Toggle + Dark mode */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+            onClick={() => setDarkMode(v => !v)}
+            className="p-2 rounded-full bg-muted hover:bg-accent border border-border transition-colors text-primary"
+          >
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <button className="text-white" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Navigation */}
