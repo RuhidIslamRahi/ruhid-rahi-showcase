@@ -4,24 +4,24 @@
 
 @layer base {
   :root {
-    /* Modern soft light colors for light mode */
-    --background: 0 0% 98%;         /* Soft off-white (hsl(0,0%,98%)) */
-    --foreground: 222 47% 11%;      /* Deep modern gray (hsl(222,47%,11%)) */
+    /* Modern gray-white colors for light mode */
+    --background: 220 10% 98%;        /* Lighter gray off-white (hsl(220,10%,98%)) */
+    --foreground: 222 47% 10%;        /* Slightly deeper modern gray */
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
     --primary: 263.4 70% 50.4%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 248 23% 92%;       /* Soft pale indigo for subtle backgrounds */
+    --secondary: 220 14% 96%;         /* softer very light gray for subtle elements */
     --secondary-foreground: 222 47% 11%;
-    --muted: 240 5% 96%;
+    --muted: 221 20% 96%;             /* very light gray for muted backgrounds */
     --muted-foreground: 222 20% 41%;
-    --accent: 255 100% 94%;         /* Soft purple accent bg */
+    --accent: 245 100% 97%;           /* graceful blueish accent */
     --accent-foreground: 222 47% 11%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 14% 96%;
+    --border: 220 14% 94%;
     --input: 220 14% 96%;
     --ring: 240 4.9% 83.9%;
   }
