@@ -72,9 +72,9 @@ const ProjectsSection = () => {
       <div className="container px-4">
         <div className="text-center mb-16">
           <div className="relative inline-block">
-            <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-400 bg-clip-text text-transparent animate-fade-in" style={{
+            <h2 style={{
             lineHeight: 1.1
-          }}>Projects</h2>
+          }} className="text-5xl tracking-tight bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-400 bg-clip-text text-transparent animate-fade-in md:text-5xl font-extrabold">Projects</h2>
             {/* Modern animated underline gesture */}
             <span className="absolute left-1/2 -translate-x-1/2 bottom-0 h-1 w-4/5 rounded-full bg-gradient-to-r from-purple-500 via-pink-400 to-indigo-400 animate-underline-gesture pointer-events-none"></span>
           </div>
