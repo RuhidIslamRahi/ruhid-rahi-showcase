@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter } from 'lucide-react';
 import SectionHeader from "@/components/SectionHeader";
@@ -29,7 +30,7 @@ const ContactSection = () => {
   };
   
   return (
-    <section id="contact" className="py-20 bg-black">
+    <section id="contact" className="py-20 bg-background">
       <div className="container px-4">
         <div className="text-center mb-16">
           <SectionHeader>Get In Touch</SectionHeader>
@@ -38,54 +39,54 @@ const ContactSection = () => {
         <div className="grid md:grid-cols-2 gap-10">
           <div>
             <h3 className="text-2xl font-bold mb-6 gradient-text">Contact Information</h3>
-            <p className="text-gray-300 mb-8">
+            <p className="text-foreground/80 mb-8">
               Have a project in mind? Looking to collaborate on data science initiatives? Feel free to reach out to me.
               I'm always open to discussing new projects, learning opportunities and data-driven challenges.
             </p>
             
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="bg-purple-900/30 p-3 rounded-lg">
+                <div className="bg-muted p-3 rounded-lg">
                   <Mail className="text-purple-500" size={24} />
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium">Email</h4>
-                  <a href="mailto:ruhidislamrahi@gmail.com" className="text-gray-300 hover:text-purple-400 transition-colors">
+                  <h4 className="text-lg font-medium text-foreground">Email</h4>
+                  <a href="mailto:ruhidislamrahi@gmail.com" className="text-muted-foreground hover:text-purple-400 transition-colors">
                     ruhidislamrahi@gmail.com
                   </a>
                 </div>
               </div>
               
               <div className="flex items-start gap-4">
-                <div className="bg-purple-900/30 p-3 rounded-lg">
+                <div className="bg-muted p-3 rounded-lg">
                   <Phone className="text-purple-500" size={24} />
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium">Phone</h4>
-                  <a href="tel:+8801779059579" className="text-gray-300 hover:text-purple-400 transition-colors">
+                  <h4 className="text-lg font-medium text-foreground">Phone</h4>
+                  <a href="tel:+8801779059579" className="text-muted-foreground hover:text-purple-400 transition-colors">
                     +880 1779059579
                   </a>
                 </div>
               </div>
               
               <div className="flex items-start gap-4">
-                <div className="bg-purple-900/30 p-3 rounded-lg">
+                <div className="bg-muted p-3 rounded-lg">
                   <MapPin className="text-purple-500" size={24} />
                 </div>
                 <div>
-                  <h4 className="text-lg font-medium">Location</h4>
-                  <p className="text-gray-300">Dhaka, Bangladesh</p>
+                  <h4 className="text-lg font-medium text-foreground">Location</h4>
+                  <p className="text-muted-foreground">Dhaka, Bangladesh</p>
                 </div>
               </div>
               
-              <div className="pt-6 border-t border-gray-800">
-                <h4 className="text-lg font-medium mb-4">Connect With Me</h4>
+              <div className="pt-6 border-t border-border">
+                <h4 className="text-lg font-medium mb-4 text-foreground">Connect With Me</h4>
                 <div className="flex gap-4">
                   <a 
                     href="https://www.linkedin.com/in/ruhidislam-rahi/"
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-900/50 transition-colors"
+                    className="bg-muted p-3 rounded-lg hover:bg-accent transition-colors"
                   >
                     <Linkedin className="text-purple-500" size={24} />
                   </a>
@@ -93,7 +94,7 @@ const ContactSection = () => {
                     href="https://github.com/RuhidIslamRahi"
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-900/50 transition-colors"
+                    className="bg-muted p-3 rounded-lg hover:bg-accent transition-colors"
                   >
                     <Github className="text-purple-500" size={24} />
                   </a>
@@ -101,7 +102,7 @@ const ContactSection = () => {
                     href="https://x.com/RuhidIslamRahi"
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="bg-purple-900/30 p-3 rounded-lg hover:bg-purple-900/50 transition-colors"
+                    className="bg-muted p-3 rounded-lg hover:bg-accent transition-colors"
                   >
                     <Twitter className="text-purple-500" size={24} />
                   </a>
@@ -110,7 +111,7 @@ const ContactSection = () => {
             </div>
           </div>
           
-          <div className="bg-gray-900 p-6 rounded-lg">
+          <div className="bg-card p-6 rounded-lg">
             <h3 className="text-2xl font-bold mb-6 gradient-text">Send Me a Message</h3>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
@@ -120,7 +121,7 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your Name"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -132,7 +133,7 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Your Email"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -144,7 +145,7 @@ const ContactSection = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Subject"
-                  className="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -156,7 +157,7 @@ const ContactSection = () => {
                   onChange={handleChange}
                   placeholder="Your Message"
                   rows={5}
-                  className="w-full bg-gray-800 border border-gray-700 rounded-md px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
+                  className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
                   required
                 ></textarea>
               </div>
