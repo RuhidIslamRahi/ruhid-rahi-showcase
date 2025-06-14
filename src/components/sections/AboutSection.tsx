@@ -1,3 +1,4 @@
+
 import { User, Mail, MapPin, ExternalLink, Download } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -20,20 +21,22 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="order-2 md:order-1">
             <h3 className="text-2xl font-bold mb-4 gradient-text">Who am I?</h3>
-            <h4 className="text-xl mb-4">I'm Ruhid Islam Rahi, a <span className="text-purple-500">Data Science Student</span></h4>
-            <p className="text-gray-300 mb-6">
+            <h4 className="text-xl mb-4">
+              I'm Ruhid Islam Rahi, a <span className="text-purple-500">Data Science Student</span>
+            </h4>
+            <p className="mb-6 text-foreground dark:text-gray-300">
               I am a passionate and driven student pursuing a Bachelor's in Data Science at United International University. 
               With a strong interest in AI, machine learning, and data analytics, I am eager to build a career as a Data Scientist.
             </p>
-            <p className="text-gray-300 mb-6">
+            <p className="mb-6 text-foreground dark:text-gray-300">
               I am actively learning Python, SQL, and data visualization tools to develop the technical skills required 
               for this field. I aim to leverage data to solve real-world problems and contribute innovative solutions.
             </p>
-            <p className="text-gray-300 mb-6">
+            <p className="mb-6 text-foreground dark:text-gray-300">
               I am open to internships, collaborations, and networking opportunities in the Data Science domain.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-foreground dark:text-gray-300">
               <div className="flex items-center gap-3">
                 <User size={18} className="text-purple-500" />
                 <span>Ruhid Islam Rahi</span>

@@ -60,17 +60,19 @@ const HeroSection = () => {
       
       <div className="container relative z-10 text-center px-4">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
-          <div>Hello, I'm <span className="gradient-text">Ruhid Islam Rahi</span></div>
+          <div>
+            Hello, I'm <span className="gradient-text">Ruhid Islam Rahi</span>
+          </div>
         </h1>
         
         <div className="h-16 flex justify-center items-center">
-          <div className="text-xl md:text-3xl font-medium">
+          <div className="text-xl md:text-3xl font-medium text-foreground dark:text-gray-300">
             <span className="typing-text">{text}</span>
             <span className="cursor-blink">|</span>
           </div>
         </div>
         
-        <p className="mt-6 max-w-lg mx-auto text-gray-300 md:text-lg">
+        <p className="mt-6 max-w-lg mx-auto md:text-lg text-foreground dark:text-gray-300">
           I create data-driven solutions, explore Python and AI tools, and enjoy building projects that solve real-world problems. I'm on a continuous journey of learning and innovation.
         </p>
         
@@ -87,7 +89,7 @@ const HeroSection = () => {
       {/* Scroll down indicator */}
       <button 
         onClick={scrollToAbout}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-300 hover:text-white transition-colors"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-purple-500 transition-colors"
       >
         <div className="flex flex-col items-center">
           <span className="text-sm mb-2">Scroll Down</span>
