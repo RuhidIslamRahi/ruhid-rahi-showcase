@@ -12,7 +12,7 @@ interface Skill {
 }
 
 const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState('programming');
   
   const skills: Skill[] = [
     // Programming
@@ -140,7 +140,7 @@ const SkillsSection = () => {
     }
   ];
   
-  const filteredSkills = activeCategory === 'all' ? skills : skills.filter(skill => skill.category === activeCategory);
+  const filteredSkills = skills.filter(skill => skill.category === activeCategory);
   
   return <section id="skills" className="py-20">
       <div className="container px-4">
@@ -149,12 +149,9 @@ const SkillsSection = () => {
           <p className="mt-6 text-gray-300 max-w-3xl mx-auto">Applications across data science, programming, and system design.</p>
         </div>
         
-        <Tabs defaultValue="all" className="w-full">
+        <Tabs defaultValue="programming" className="w-full">
           <div className="flex justify-center mb-12 overflow-x-auto">
             <TabsList className="bg-gray-800/60 p-1 rounded-lg">
-              <TabsTrigger value="all" className="data-[state=active]:bg-purple-600 data-[state=active]:text-white rounded-md px-4 py-2" onClick={() => setActiveCategory('all')}>
-                All Skills
-              </TabsTrigger>
               <TabsTrigger value="programming" className="data-[state=active]:bg-purple-600 data-[state=active]:text-white rounded-md px-4 py-2" onClick={() => setActiveCategory('programming')}>
                 Programming
               </TabsTrigger>
