@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { cn } from "@/lib/utils";
@@ -105,7 +104,7 @@ const NavBar = () => {
 
   return <header className={cn("fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4", isScrolled ? "bg-dark shadow-lg bg-opacity-90 py-2" : "bg-transparent")}>
       <div className="container flex justify-between items-center">
-        <div className="text-2xl font-bold gradient-text">Ruhid's Portfolio</div>
+        <div className="text-2xl font-bold gradient-text">Ruhid</div>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-4 items-center">
