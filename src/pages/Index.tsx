@@ -1,18 +1,18 @@
 
 import Layout from '@/components/Layout';
 import HeroSection from '@/components/sections/HeroSection';
-import SkillsSection from '@/components/sections/SkillsSection';
+import AboutSection from '@/components/sections/AboutSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
-import BlogsSection from '@/components/sections/BlogsSection';
+import SkillsSection from '@/components/sections/SkillsSection';
 import ContactSection from '@/components/sections/ContactSection';
 
 const Index = () => {
   return (
     <Layout>
       <HeroSection />
-      <SkillsSection />
+      <AboutSection />
       <ProjectsSection />
-      <BlogsSection />
+      <SkillsSection />
       <ContactSection />
     </Layout>
   );
