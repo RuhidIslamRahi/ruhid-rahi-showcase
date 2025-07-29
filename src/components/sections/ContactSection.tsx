@@ -1,13 +1,11 @@
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter } from 'lucide-react';
-import SectionHeader from "@/components/SectionHeader";
+import { Mail, Phone, Send, Linkedin, Github } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: '',
   });
   
@@ -24,153 +22,114 @@ const ContactSection = () => {
     setFormData({
       name: '',
       email: '',
-      subject: '',
       message: '',
     });
   };
   
   return (
     <section id="contact" className="py-20 bg-background">
-      <div className="container px-4">
+      <div className="container px-4 max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <SectionHeader>Get In Touch</SectionHeader>
+          <h2 className="text-4xl font-bold text-foreground mb-4">Get in Touch</h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Let's build something amazing together! Feel free to reach out to me if you have a project in mind or want to collaborate.
+          </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-10">
-          <div>
-            <h3 className="text-2xl font-bold mb-6 gradient-text">Contact Information</h3>
-            <p className="text-foreground/80 mb-8">
-              Have a project in mind? Looking to collaborate on data science initiatives? Feel free to reach out to me.
-              I'm always open to discussing new projects, learning opportunities and data-driven challenges.
-            </p>
-            
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-muted p-3 rounded-lg">
-                  <Mail className="text-purple-500" size={24} />
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium text-foreground">Email</h4>
-                  <a href="mailto:ruhidislamrahi@gmail.com" className="text-muted-foreground hover:text-purple-400 transition-colors">
-                    ruhidislamrahi@gmail.com
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="bg-muted p-3 rounded-lg">
-                  <Phone className="text-purple-500" size={24} />
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium text-foreground">Phone</h4>
-                  <a href="tel:+8801779059579" className="text-muted-foreground hover:text-purple-400 transition-colors">
-                    +880 1779059579
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="bg-muted p-3 rounded-lg">
-                  <MapPin className="text-purple-500" size={24} />
-                </div>
-                <div>
-                  <h4 className="text-lg font-medium text-foreground">Location</h4>
-                  <p className="text-muted-foreground">Dhaka, Bangladesh</p>
-                </div>
-              </div>
-              
-              <div className="pt-6 border-t border-border">
-                <h4 className="text-lg font-medium mb-4 text-foreground">Connect With Me</h4>
-                <div className="flex gap-4">
-                  <a 
-                    href="https://www.linkedin.com/in/ruhidislam-rahi/"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-muted p-3 rounded-lg hover:bg-accent transition-colors"
-                  >
-                    <Linkedin className="text-purple-500" size={24} />
-                  </a>
-                  <a 
-                    href="https://github.com/RuhidIslamRahi"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-muted p-3 rounded-lg hover:bg-accent transition-colors"
-                  >
-                    <Github className="text-purple-500" size={24} />
-                  </a>
-                  <a 
-                    href="https://x.com/RuhidIslamRahi"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-muted p-3 rounded-lg hover:bg-accent transition-colors"
-                  >
-                    <Twitter className="text-purple-500" size={24} />
-                  </a>
-                </div>
-              </div>
-            </div>
+        {/* Contact Info */}
+        <div className="flex justify-center gap-8 mb-12">
+          <div className="flex items-center gap-3">
+            <Phone className="text-green-500" size={20} />
+            <a href="tel:+8801779059579" className="text-green-500 hover:text-green-600 transition-colors">
+              (880) 1779059579
+            </a>
           </div>
-          
-          <div className="bg-card p-6 rounded-lg">
-            <h3 className="text-2xl font-bold mb-6 gradient-text">Send Me a Message</h3>
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
+          <div className="flex items-center gap-3">
+            <Mail className="text-green-500" size={20} />
+            <a href="mailto:ruhidislamrahi@gmail.com" className="text-green-500 hover:text-green-600 transition-colors">
+              ruhidislamrahi@gmail.com
+            </a>
+          </div>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex justify-center gap-4 mb-12">
+          <a 
+            href="https://www.linkedin.com/in/ruhidislam-rahi/"
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-700 transition-colors"
+          >
+            <Linkedin size={24} />
+          </a>
+          <a 
+            href="https://github.com/RuhidIslamRahi"
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-foreground hover:text-muted-foreground transition-colors"
+          >
+            <Github size={24} />
+          </a>
+        </div>
+        
+        {/* Contact Form */}
+        <div className="max-w-2xl mx-auto">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Name <span className="text-red-500">*</span>
+                </label>
                 <input 
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Your Name"
-                  className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  placeholder="Enter your name"
+                  className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   required
                 />
               </div>
               
-              <div className="mb-4">
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Email <span className="text-red-500">*</span>
+                </label>
                 <input 
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Your Email"
-                  className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  placeholder="Enter your email"
+                  className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   required
                 />
               </div>
-              
-              <div className="mb-4">
-                <input 
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="Subject"
-                  className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  required
-                />
-              </div>
-              
-              <div className="mb-6">
-                <textarea 
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your Message"
-                  rows={5}
-                  className="w-full bg-muted border border-border rounded-md px-4 py-3 text-foreground placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
-                  required
-                ></textarea>
-              </div>
-              
-              <button 
-                type="submit" 
-                className="btn btn-primary w-full flex items-center justify-center gap-2"
-              >
-                Send Message
-                <Send size={18} />
-              </button>
-            </form>
-          </div>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-2">
+                Message <span className="text-red-500">*</span>
+              </label>
+              <textarea 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Enter your message"
+                rows={6}
+                className="w-full bg-muted border border-border rounded-lg px-4 py-3 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
+                required
+              ></textarea>
+            </div>
+            
+            <button 
+              type="submit" 
+              className="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
+            >
+              Send Message
+              <Send size={18} />
+            </button>
+          </form>
         </div>
       </div>
     </section>
