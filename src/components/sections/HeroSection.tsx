@@ -1,86 +1,101 @@
 
-import { Download, Linkedin, Github, Globe } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 const HeroSection = () => {
+  const [text, setText] = useState('');
+  const fullTexts = ["Data Scientist", "Python Enthusiast", "Problem Solver"];
+  const [textIndex, setTextIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  useEffect(() => {
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const pauseTime = 1500;
+    
+    const handleTypingEffect = () => {
+      const currentText = fullTexts[textIndex];
+      
+      if (isTyping && !isDeleting) {
+        // Typing forward
+        if (text.length < currentText.length) {
+          setText(currentText.substring(0, text.length + 1));
+        } else {
+          // Finished typing the full text
+          setIsTyping(false);
+          setTimeout(() => {
+            setIsDeleting(true);
+          }, pauseTime);
+        }
+      } else if (isDeleting) {
+        // Deleting text
+        if (text.length > 0) {
+          setText(text.substring(0, text.length - 1));
+        } else {
+          // Finished deleting, move to next text
+          setIsDeleting(false);
+          setTextIndex((prev) => (prev + 1) % fullTexts.length);
+          setIsTyping(true);
+        }
+      }
+    };
+    
+    const timer = setTimeout(
+      handleTypingEffect, 
+      isDeleting ? deletingSpeed : typingSpeed
+    );
+    
+    return () => clearTimeout(timer);
+  }, [text, isTyping, isDeleting, textIndex, fullTexts]);
+
+  const scrollToAbout = () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
   return (
-    <section id="home" className="bg-background min-h-screen pt-20 pb-16">
-      <div className="container px-4 mx-auto">
-        <div className="text-center py-16">
-          {/* Profile Image */}
-          <div className="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-primary/20">
-            <img 
-              src="/lovable-uploads/a9dfc89e-3ec8-4231-9138-dabaf763d0be.png" 
-              alt="Ruhid Islam Rahi" 
-              className="w-full h-full object-cover"
-            />
+    <section id="home" className="relative min-h-screen flex items-center justify-center">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-900/30 to-black"></div>
+      
+      <div className="container relative z-10 text-center px-4">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
+          <div>
+            Hello, I'm <span className="gradient-text">Ruhid Islam Rahi</span>
           </div>
-          
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            I'm Ruhid Islam Rahi!
-          </h1>
-          
-          {/* Subtitle */}
-          <h2 className="text-xl md:text-2xl font-medium text-primary mb-6">
-            Data Scientist
-          </h2>
-          
-          {/* Description */}
-          <p className="max-w-2xl mx-auto text-muted-foreground mb-8 leading-relaxed">
-            with a strong foundation in Python, Machine Learning and AI tools. 
-            Experienced in creating data-driven solutions, exploring analytical insights with clean, efficient code and 
-            modern technologies.
-          </p>
-          
-          {/* Social Links */}
-          <div className="flex justify-center gap-4 mb-8">
-            <a 
-              href="https://linkedin.com/in/ruhidislam" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a 
-              href="https://github.com/ruhidislam" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-gray-800 text-white hover:bg-gray-900 transition-colors"
-            >
-              <Github size={20} />
-            </a>
-            <a 
-              href="#" 
-              className="p-3 rounded-full bg-green-600 text-white hover:bg-green-700 transition-colors"
-            >
-              <Globe size={20} />
-            </a>
+        </h1>
+        
+        <div className="h-16 flex justify-center items-center">
+          <div className="text-xl md:text-3xl font-medium text-foreground dark:text-gray-300">
+            <span className="typing-text">{text}</span>
+            <span className="cursor-blink">|</span>
           </div>
-          
-          {/* Download Resume Button */}
-          <button className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
-            <Download size={20} />
-            Download Resume
-          </button>
         </div>
         
-        {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="bg-card p-8 rounded-xl text-center border border-border">
-            <div className="text-3xl font-bold text-primary mb-2">5+</div>
-            <div className="text-muted-foreground">Projects</div>
-          </div>
-          <div className="bg-card p-8 rounded-xl text-center border border-border">
-            <div className="text-3xl font-bold text-primary mb-2">1.5+</div>
-            <div className="text-muted-foreground">Years Experience</div>
-          </div>
-          <div className="bg-card p-8 rounded-xl text-center border border-border">
-            <div className="text-3xl font-bold text-primary mb-2">BSc</div>
-            <div className="text-muted-foreground">Data Science</div>
-          </div>
+        <p className="mt-6 max-w-lg mx-auto md:text-lg text-foreground dark:text-gray-300">
+          I create data-driven solutions, explore Python and AI tools, and enjoy building projects that solve real-world problems. I'm on a continuous journey of learning and innovation.
+        </p>
+        
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#projects" className="btn btn-primary">
+            View My Work
+          </a>
+          <a href="#contact" className="btn btn-outline">
+            Contact Me
+          </a>
         </div>
       </div>
+      
+      {/* Scroll down indicator */}
+      <button 
+        onClick={scrollToAbout}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-purple-500 transition-colors"
+      >
+        <div className="flex flex-col items-center">
+          <span className="text-sm mb-2">Scroll Down</span>
+          <ChevronDown className="animate-bounce" />
+        </div>
+      </button>
     </section>
   );
 };
