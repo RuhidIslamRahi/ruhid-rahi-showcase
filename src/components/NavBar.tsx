@@ -55,14 +55,6 @@ const NavBar = () => {
   }, [location.pathname]);
 
   const navLinks = [{
-    title: 'Home',
-    id: 'home',
-    path: '/'
-  }, {
-    title: 'About',
-    id: 'about',
-    path: '/#about'
-  }, {
     title: 'Resume',
     id: 'resume',
     path: '/resume'
@@ -71,15 +63,11 @@ const NavBar = () => {
     id: 'projects',
     path: '/#projects'
   }, {
-    title: 'Skills',
-    id: 'skills',
-    path: '/#skills'
+    title: 'Blog',
+    id: 'blog',
+    path: '/blog'
   }, {
-    title: 'Certifications',
-    id: 'certifications',
-    path: '/certifications'
-  }, {
-    title: 'Contact',
+    title: 'Contacts',
     id: 'contact',
     path: '/#contact'
   }];
@@ -102,9 +90,9 @@ const NavBar = () => {
     return location.pathname === path;
   };
 
-  return <header className={cn("fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4", isScrolled ? "bg-dark shadow-lg bg-opacity-90 py-2" : "bg-transparent")}>
+  return <header className={cn("fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4", isScrolled ? "bg-background/95 backdrop-blur-sm shadow-sm py-3" : "bg-background")}>
       <div className="container flex justify-between items-center">
-        <div className="text-2xl font-bold gradient-text">Ruhid</div>
+        <div className="text-2xl font-bold text-foreground">RUHID</div>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-4 items-center">
